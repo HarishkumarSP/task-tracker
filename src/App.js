@@ -1,9 +1,10 @@
-import './App.css';
+import { useState } from 'react'
 import Header from './components/Header';
 import MainTasks from './components/MainTasks';
+import './App.css';
 
 const App = () => {
-  const tasks = [
+  const [tasks,setTasks] = useState([
     {
         id:1,
         text:'Food appointment',
@@ -28,12 +29,26 @@ const App = () => {
         day:'Mar 09 at 5',
         reminder: true
     }
-]
+])
+
+//Delete Task
+const deleteTask = (id) => {
+  setTasks(tasks.filter((task) => task.id !== id))
+} 
+
+// Toggle Remainder
+const toggleRemainder = (id) => {
+  console.log(id)
+}
 
   return (
     <div className="container">
       <Header />
-      <MainTasks tasks = {tasks} />
+      {
+      tasks.length > 0 ? (
+      <MainTasks tasks = {tasks} onDelete = {deleteTask} onToggle={toggleRemainder} />)
+    :('No tasks left')
+    }
     </div>
   );
 }
