@@ -25,12 +25,12 @@ const AddTask = ( { onAdd } ) => {
             <div className='form-control'>
                 <label>Task</label>
                 <input type='text' placeholder='Add task' value={text} 
-                onChange={(e) => setText(e.target.value) } />
+                onChange={(e) => setText(e.target.value) } required/>
             </div>
             <div className='form-control'>
                 <label>Day and Time</label>
                 <input type='text' placeholder='Add Day and Time' value={day} 
-                 onChange={(e) => setDay(e.target.value)} />
+                 onChange={(e) => setDay(e.target.value)} required />
             </div>
             <div className='form-control form-control-check'>
                 <label>Set reminder</label>
